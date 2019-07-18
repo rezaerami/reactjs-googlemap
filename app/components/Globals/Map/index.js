@@ -17,7 +17,7 @@ import { StyledMapWrapper } from './styles';
  * @memberOf components.Globals.Map
  * @function Map
  * @description
- * renders a list of suggestion items
+ * renders a map using google map service
  * @param {object}   props     - props of component that were given by parent
  * @return {jsx} - jsx component to show
  * @example
