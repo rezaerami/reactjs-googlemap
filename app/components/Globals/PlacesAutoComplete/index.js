@@ -45,26 +45,28 @@ class PlacesAutoComplete extends Component {
   }
 
   handleGetPlaces() {
-    const { query } = this.state;
+    const { query, loading } = this.state;
     const {
       onGetPlaces,
       location: { lat, lng },
       radius,
     } = this.props;
-    this.handleToggleLoading();
-    onGetPlaces({
-      lat,
-      lng,
-      radius,
-      query,
-      onSuccess: places => {
-        this.handleSetPlaces(places, this.handleToggleLoading);
-      },
-      onFailed: message => {
-        this.handleToggleLoading();
-        toast.error(message);
-      },
-    });
+    if(!loading && query){
+      this.handleToggleLoading();
+      onGetPlaces({
+        lat,
+        lng,
+        radius,
+        query: query.trim(),
+        onSuccess: places => {
+          this.handleSetPlaces(places, this.handleToggleLoading);
+        },
+        onFailed: message => {
+          this.handleToggleLoading();
+          toast.error(message);
+        },
+      });
+    }
   }
   handleSetPlaces(places, callback = () => {}) {
     this.setState(
@@ -100,8 +102,6 @@ class PlacesAutoComplete extends Component {
 
   render() {
     const { places, formSubmitted, query, loading } = this.state;
-    console.log('places', places);
-    console.log('formSubmitted', formSubmitted);
     return (
       <StyledAutoCompleteWrapper>
         <PlacesAutoCompleteForm

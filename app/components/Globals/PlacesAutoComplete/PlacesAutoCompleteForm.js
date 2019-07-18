@@ -33,7 +33,7 @@ const PlacesAutoCompleteForm = props => {
           onClick={onFormSubmit}
           disabled="loading"
         >
-          <Icon name={loading ? 'spinner' : 'search'} size={1.3} />
+          <Icon name={loading ? 'spinner' : 'search'} size={1.5} />
         </button>
       </StyledAutoCompleteButtonWrapper>
     </StyledAutoCompleteFormWrapper>

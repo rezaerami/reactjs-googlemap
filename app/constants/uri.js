@@ -1,9 +1,10 @@
-const baseApi = process.env.BASE_API;
+import MAP_INFO from "./mapInfo";
+
 
 const URI = {
-  SAMPLE: {
-    FOO: ({ sample }) =>
-      `${baseApi}/path/to/endpoint?sample=${sample}`,
+  GOOGLE_MAP: {
+    NEAR_BY_SEARCH: ({ lat, lng, radius, query }) =>
+      `${MAP_INFO.api}/place/nearbysearch/json?location=-${lat},${lng}&radius=${radius}&name=${query}&key=${MAP_INFO.key}`,
   },
 };
 export default URI;

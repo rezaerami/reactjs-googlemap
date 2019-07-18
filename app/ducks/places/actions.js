@@ -5,8 +5,8 @@ const actions = {
     type: types.GET_PLACES,
     payload,
   }),
-  setPlacesSearchHistory: payload => ({
-    type: types.SET_PLACES_SEARCH_HISTORY,
+  setSearchHistory: payload => ({
+    type: types.SET_SEARCH_HISTORY,
     payload,
   }),
 };
