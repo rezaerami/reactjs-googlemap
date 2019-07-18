@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Map from '../Globals/Map';
+import PlacesAutoComplete from '../Globals/PlacesAutoComplete';
 
 import { StyledPlacesWrapper } from './styles';
 import MAP_INFO from '../../constants/mapInfo';
@@ -34,9 +35,16 @@ class Places extends Component {
 
   render() {
     const { lat, lng } = this.state;
+    const { getPlaces, placesSearchHistory } = this.props;
     return (
       <StyledPlacesWrapper>
         <Map location={{ lat, lng }} />
+        <PlacesAutoComplete
+          onSetLocation={this.handleSetLocation}
+          onGetPlaces={getPlaces}
+          placesSearchHistory={placesSearchHistory}
+          location={{ lat, lng }}
+        />
       </StyledPlacesWrapper>
     );
   }
@@ -44,6 +52,8 @@ class Places extends Component {
 
 Places.propTypes = {
   location: PropTypes.object,
+  getPlaces: PropTypes.func.isRequired,
+  placesSearchHistory: PropTypes.array.isRequired,
 };
 
 Places.defaultProps = {

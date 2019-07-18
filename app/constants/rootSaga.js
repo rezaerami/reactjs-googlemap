@@ -1,8 +1,6 @@
 import { all } from 'redux-saga/effects';
-import appSaga from '../ducks/app/saga';
+import placesSaga from '../ducks/places/saga';
 
 export default function* rootSaga() {
-  yield all([
-    ...appSaga,
-  ]);
+  yield all([...placesSaga]);
 }

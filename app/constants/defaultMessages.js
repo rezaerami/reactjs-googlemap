@@ -1,4 +1,4 @@
 const defaultMessages = {
-  sampleMessage: 'Hi there, here is sample message',
+  searchPlaces: 'Search for places',
 };
 export default defaultMessages;

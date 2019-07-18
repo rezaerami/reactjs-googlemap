@@ -1,13 +1,13 @@
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import appReducer from '../ducks/app/reducers';
+import placesReducer from '../ducks/places/reducers';
 
 const appPersistConfig = {
-  key: 'app',
+  key: 'places',
   storage,
 };
 
 const rootReducer = {
-  app: persistReducer(appPersistConfig, appReducer),
+  places: persistReducer(appPersistConfig, placesReducer),
 };
 export default rootReducer;

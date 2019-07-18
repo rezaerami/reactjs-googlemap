@@ -303,6 +303,9 @@ const additionalClasses = `
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 101;
   }
+  .spinner {
+    animation: spinner infinite linear 1s;
+  }
 `;
 const keyframes = `
   @keyframes spinner {
