@@ -36,3 +36,11 @@ $ npm install</pre>
     use bellow command to export the project.
     <pre>$ npm run build</pre>
 </p>
+
+<br />
+<h2>Docs</h2>
+<p>
+    to see the components documentation run bellow command
+    <pre>$ npm run generate-docs -r app/</pre>
+    after generating docs, you can see them in docs directory in projects root
+</p>
