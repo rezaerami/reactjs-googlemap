@@ -5,6 +5,7 @@
 
 # production
 /build
+/docs
 
 # dependencies
 /node_modules
