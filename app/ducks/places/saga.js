@@ -9,12 +9,12 @@ import defaultMessages from '../../constants/defaultMessages';
 
 export function* getPlaces(action) {
   const {
-    payload: { lat, lng, radius, query, onSuccess, onFailed },
+    payload: { query, onSuccess, onFailed },
   } = action;
   try {
     yield select(selectors.searchHistory);
     yield put(actions.setSearchHistory(query));
-    const response = yield call(api.getPlaces, { lat, lng, radius, query });
+    const response = yield call(api.getPlaces, { query });
     const { results } = response;
     yield call(onSuccess, results);
   } catch (e) {

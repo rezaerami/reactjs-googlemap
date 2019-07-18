@@ -68,28 +68,23 @@ class PlacesAutoComplete extends Component {
 
   handleGetPlaces() {
     const { query, loading } = this.state;
-    const {
-      onGetPlaces,
-      location: { lat, lng },
-      radius,
-    } = this.props;
+    const { onGetPlaces } = this.props;
     if (!loading && query) {
       this.handleToggleLoading();
       onGetPlaces({
-        lat,
-        lng,
-        radius,
         query: query.trim(),
         onSuccess: results => {
           const places = [];
           results.forEach(item => {
             const {
-              geometry: { location },
+              geometry: {
+                location: { lat, lng },
+              },
               name: title,
             } = item;
             places.push({
-              lat: location.lat,
-              lng: location.lng,
+              lat,
+              lng,
               title,
             });
           });
@@ -197,13 +192,7 @@ class PlacesAutoComplete extends Component {
 PlacesAutoComplete.propTypes = {
   onSetLocation: PropTypes.func.isRequired,
   onGetPlaces: PropTypes.func.isRequired,
-  location: PropTypes.object.isRequired,
-  radius: PropTypes.number,
   placesSearchHistory: PropTypes.array,
-};
-
-PlacesAutoComplete.defaultProps = {
-  radius: 10000,
 };
 
 export default PlacesAutoComplete;
