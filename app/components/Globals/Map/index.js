@@ -18,8 +18,8 @@ const Map = props => {
     <StyledMapWrapper>
       <GoogleMapReact
         bootstrapURLKeys={{ key: MAP_INFO.key }}
-        defaultCenter={{ lat, lng }}
         defaultZoom={zoom}
+        center={{ lat, lng }}
       >
         {hasMarker && <Marker lat={lat} lng={lng} />}
       </GoogleMapReact>
