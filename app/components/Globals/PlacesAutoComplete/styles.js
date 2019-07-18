@@ -1,5 +1,6 @@
 import Styled from 'styled-components';
 
+/* eslint-disable prettier/prettier */
 const StyledAutoCompleteWrapper = Styled.div`
   position: absolute;
   top: calc(${props => props.theme.defaultRem});
@@ -39,7 +40,22 @@ const StyledAutoCompleteButtonWrapper = Styled.div`
   width: calc(${props => props.theme.defaultRem} * 3.5);
 `;
 
-const StyledAutoCompleteSuggestionsWrapper = Styled.div``;
+const StyledAutoCompleteSuggestionsWrapper = Styled.div`
+  border-radius: calc(${props => props.theme.defaultRem} * 0.5);
+  box-shadow: 0 calc(${props => props.theme.defaultRem} * 0.5) calc(${props =>
+  props.theme.defaultRem} * 1) rgba(0, 0, 0, 0.1);
+  background-color: ${props => props.theme.colors.white};
+  margin-top: calc(${props => props.theme.defaultRem} * 1);
+`;
+const StyledSuggestionItem = Styled.div`
+  padding: calc(${props => props.theme.defaultRem} * 1);
+  font-size: calc(${props => props.theme.defaultRem} * 1.2);
+  cursor: pointer;
+  &:not(:last-child){
+    border-bottom: solid calc(${props =>
+    props.theme.defaultRem} * 0.1) ${props => props.theme.colors.borderColor};
+  }
+`;
 
 export {
   StyledAutoCompleteWrapper,
@@ -47,4 +63,5 @@ export {
   StyledAutoCompleteInputWrapper,
   StyledAutoCompleteButtonWrapper,
   StyledAutoCompleteSuggestionsWrapper,
+  StyledSuggestionItem,
 };

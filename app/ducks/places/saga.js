@@ -15,8 +15,8 @@ export function* getPlaces(action) {
     yield select(selectors.searchHistory);
     yield put(actions.setSearchHistory(query));
     const response = yield call(api.getPlaces, { lat, lng, radius, query });
-    const { results: places } = response;
-    yield call(onSuccess, places);
+    const { results } = response;
+    yield call(onSuccess, results);
   } catch (e) {
     console.log('err', e);
     let error = defaultMessages.promiseFailed;
