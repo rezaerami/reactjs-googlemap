@@ -67,7 +67,7 @@ PlacesAutoCompleteSuggestion.propTypes = {
  * @name defaultProps
  * @type {object}
  * @description defines default props of PlacesAutoCompleteSuggestion
- * @property {array}         [suggestions]          - sets an emty array as default suggestions
+ * @property {array}         [suggestions]          - sets an empty array as default suggestions
  */
 PlacesAutoCompleteSuggestion.defaultProps = {
   suggestions: [],
