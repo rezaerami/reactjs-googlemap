@@ -1,5 +1,5 @@
 /**
- * @memberOf components.Globals.Map
+ * @memberOf components.Globals
  * @namespace components.Globals.Map
  */
 import React from 'react';
