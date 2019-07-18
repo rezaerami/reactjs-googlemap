@@ -1,3 +1,7 @@
+/**
+ * @memberOf components
+ * @namespace components.Places
+ */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,7 +11,26 @@ import PlacesAutoComplete from '../Globals/PlacesAutoComplete';
 import { StyledPlacesWrapper } from './styles';
 import MAP_INFO from '../../constants/mapInfo';
 
+/**
+ * class representing a component
+ * @memberOf components.Places
+ * @class Places
+ * @classdesc
+ * Places contains map and auto complete form and passes props that they need
+ * @extends Component
+ * @example
+ * <Places getPlaces={getPlaces} placesSearchHistory={placesSearchHistory} />
+ */
 class Places extends Component {
+  /**
+   * initializes Places
+   * @memberOf components.Places.Places
+   * @constructs Places
+   * @function constructor
+   * @description initializes default states and gives access to class through the handlers
+   * @param {object} props - props to extend
+   * @return void
+   */
   constructor(props) {
     super(props);
 
@@ -22,6 +45,15 @@ class Places extends Component {
     this.handleSetLocation = this.handleSetLocation.bind(this);
   }
 
+  /**
+   * sets a location
+   * @memberOf components.Places.Places
+   * @function handleSetLocation
+   * @description sets given location to state of component
+   * @param {object}   location - location to put in state
+   * @param {function} callback - callback to call after setting location
+   * @return void
+   */
   handleSetLocation(location, callback = () => {}) {
     const { lat, lng } = location;
     this.setState(
@@ -32,7 +64,13 @@ class Places extends Component {
       callback,
     );
   }
-
+  /**
+   * renders Places component
+   * @memberOf components.Places.Places
+   * @function render
+   * @description passes properties and methods to child component
+   * @return {jsx} - jsx component to show
+   */
   render() {
     const { lat, lng } = this.state;
     const { getPlaces, placesSearchHistory } = this.props;
@@ -50,14 +88,35 @@ class Places extends Component {
   }
 }
 
+/**
+ * @memberOf components.Places.Places
+ * @name propTypes
+ * @type {object}
+ * @description defines prop types of Places
+ * @property {object}      [location]                - Location to pass to the map
+ * @property {array}       placesSearchHistory       - SELF INJECTION, array of user's search history
+ * @property {function}    getPlaces                 - SELF INJECTION, function to dispatch getPlace action
+ */
 Places.propTypes = {
   location: PropTypes.object,
-  getPlaces: PropTypes.func.isRequired,
   placesSearchHistory: PropTypes.array.isRequired,
+  getPlaces: PropTypes.func.isRequired,
 };
 
+/**
+ * @memberOf components.Places.Places
+ * @name defaultProps
+ * @type {object}
+ * @description defines default props of Places
+ * @property {object}      location            - Location to pass to the map
+ */
 Places.defaultProps = {
   location: MAP_INFO.defaultLocation,
 };
 
+/**
+ * @memberOf components.Places.Places
+ * @export Places
+ * @description exports Places module.
+ */
 export default Places;
