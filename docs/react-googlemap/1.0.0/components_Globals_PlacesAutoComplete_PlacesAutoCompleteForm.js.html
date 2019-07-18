@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>components/Globals/PlacesAutoComplete/PlacesAutoCompleteForm.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html">PlacesAutoComplete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.componentDidMount">componentDidMount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.componentWillUnmount">componentWillUnmount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.handleGetPlaces">handleGetPlaces</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.handleOutsideClick">handleOutsideClick</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.handlePlacesItemClick">handlePlacesItemClick</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.handlePlacesSearchHistoryItemClick">handlePlacesSearchHistoryItemClick</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.handleSetPlaces">handleSetPlaces</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.handleSetPlacesAutoCompleteSuggestionVisibility">handleSetPlacesAutoCompleteSuggestionVisibility</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.handleSetQuery">handleSetQuery</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.handleToggleLoading">handleToggleLoading</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoComplete.html#.render">render</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="containers.Hoc.Hoc.html#constructor">constructor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="components.Globals.TypingDone.TypingDone.html">TypingDone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.TypingDone.TypingDone.html#.componentDidMount">componentDidMount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.TypingDone.TypingDone.html#.componentWillReceiveProps">componentWillReceiveProps</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.TypingDone.TypingDone.html#.handleSetTimer">handleSetTimer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.TypingDone.TypingDone.html#.handleSetTimer">handleSetTimer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.TypingDone.TypingDone.html#.handleValueChange">handleValueChange</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.TypingDone.TypingDone.html#.render">render</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="containers.Hoc.Hoc.html#constructor">constructor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="components.Places.Places.html">Places</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Places.Places.html#.handleSetLocation">handleSetLocation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Places.Places.html#.render">render</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="containers.Hoc.Hoc.html#constructor">constructor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="containers.Hoc.Hoc.html">Hoc</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="containers.Hoc.Hoc.html#constructor">constructor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="containers.Hoc.Hoc.html#.componentDidMount">componentDidMount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="containers.Hoc.Hoc.html#.handleSetCookie">handleSetCookie</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="containers.Hoc.Hoc.html#.render">render</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="containers.PlacesPage.PlacesPage.html">PlacesPage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="containers.PlacesPage.PlacesPage.html#.render">render</a></span></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.html">components</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.Globals.html">Globals</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.Globals.Icon.html">Icon</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.Icon.html#.Icon">Icon</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.Globals.Map.html">Map</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.Map.html#.Map">Map</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.Globals.Map.Marker.html">Marker</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.Map.Marker.html#.Marker">Marker</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.html">PlacesAutoComplete</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoCompleteForm.html">PlacesAutoCompleteForm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoCompleteForm.html#.PlacesAutoCompleteForm">PlacesAutoCompleteForm</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoCompleteSuggestion.html">PlacesAutoCompleteSuggestion</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="components.Globals.PlacesAutoComplete.PlacesAutoCompleteSuggestion.html#.PlacesAutoCompleteSuggestion">PlacesAutoCompleteSuggestion</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.Globals.TypingDone.html">TypingDone</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="components.Places.html">Places</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="containers.html">containers</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="containers.Hoc.html">Hoc</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="containers.PlacesPage.html">PlacesPage</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#addLocaleData">addLocaleData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#makeSelectLocale">makeSelectLocale</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#routeReducer">routeReducer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#selectLanguage">selectLanguage</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/Globals/PlacesAutoComplete/PlacesAutoCompleteForm.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @memberOf components.Globals.PlacesAutoComplete
+ * @namespace components.Globals.PlacesAutoComplete.PlacesAutoCompleteForm
+ */
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import defaultMessages from '../../../constants/defaultMessages';
+
+import TypingDone from '../TypingDone';
+import Icon from '../Icon';
+
+import {
+  StyledAutoCompleteFormWrapper,
+  StyledAutoCompleteInputWrapper,
+  StyledAutoCompleteButtonWrapper,
+} from './styles';
+
+/**
+ * function represents a stateless component
+ * @memberOf components.Globals.PlacesAutoComplete.PlacesAutoCompleteForm
+ * @function PlacesAutoCompleteForm
+ * @description
+ * renders a form to let user search and passes search query to parent
+ * @param {object}   props     - props of component that were given by parent
+ * @return {jsx} - jsx component to show
+ * @example
+ * &lt;PlacesAutoCompleteForm
+     loading={loading}
+     query={query}
+     onSetQuery={onSetQuery}
+     onFormSubmit={onFormSubmit}
+    />
+ */
+/* eslint-disable no-nested-ternary */
+const PlacesAutoCompleteForm = props => {
+  const { loading, query, onSetQuery, onFormSubmit } = props;
+  return (
+    &lt;StyledAutoCompleteFormWrapper onSubmit={onFormSubmit}>
+      &lt;StyledAutoCompleteInputWrapper>
+        &lt;TypingDone
+          onChangeValue={onSetQuery}
+          disabled={loading}
+          onTypingDone={onFormSubmit}
+          placeholder={defaultMessages.searchPlaces}
+          value={query}
+          type="text"
+        />
+      &lt;/StyledAutoCompleteInputWrapper>
+      &lt;StyledAutoCompleteButtonWrapper>
+        &lt;button
+          className={loading ? 'spinner' : ''}
+          type="button"
+          onClick={() => onSetQuery('')}
+          disabled={loading}
+        >
+          &lt;Icon
+            name={loading ? 'spinner' : query ? 'cross' : 'search'}
+            size={1.5}
+          />
+        &lt;/button>
+      &lt;/StyledAutoCompleteButtonWrapper>
+    &lt;/StyledAutoCompleteFormWrapper>
+  );
+};
+
+/**
+ * @memberOf components.Globals.PlacesAutoComplete.PlacesAutoCompleteForm
+ * @name propTypes
+ * @type {object}
+ * @description defines prop types of PlacesAutoCompleteForm
+ * @property {boolean}         [loading]            - defines if any loading in progress from parent
+ * @property {string}          [query]              - user's input query in form
+ * @property {function}        onSetQuery           - function to pass query to parent
+ * @property {function}        onFormSubmit         - function to submit form
+ */
+PlacesAutoCompleteForm.propTypes = {
+  loading: PropTypes.bool,
+  query: PropTypes.string,
+  onSetQuery: PropTypes.func.isRequired,
+  onFormSubmit: PropTypes.func.isRequired,
+};
+/**
+ * @memberOf components.Globals.PlacesAutoComplete.PlacesAutoCompleteForm
+ * @name defaultProps
+ * @type {object}
+ * @description defines default props of PlacesAutoCompleteForm
+ * @property {boolean}         [loading]            - sets false for default loading
+ * @property {string}          [query]              - sets an empty string as default query
+ */
+PlacesAutoCompleteForm.defaultProps = {
+  loading: false,
+  query: '',
+};
+
+/**
+ * @memberOf components.Globals.PlacesAutoComplete.PlacesAutoCompleteForm
+ * @export PlacesAutoCompleteForm
+ * @description exports PlacesAutoCompleteForm module.
+ */
+export default PlacesAutoCompleteForm;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Jul 18 2019 23:03:01 GMT+0430 (Iran Daylight Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
