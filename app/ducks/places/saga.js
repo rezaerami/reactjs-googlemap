@@ -15,14 +15,14 @@ export function* getPlaces(action) {
     yield select(selectors.searchHistory);
     yield put(actions.setSearchHistory(query));
     const response = yield call(api.getPlaces, { query });
-    const { results } = response;
+    const { data: {results} } = response;
     yield call(onSuccess, results);
   } catch (e) {
     console.log('err', e);
     let error = defaultMessages.promiseFailed;
     if (e.response) {
       const {
-        response: { error_message: errorMessage },
+        response: { data: {error_message: errorMessage} },
       } = e;
       error = errorMessage;
     }

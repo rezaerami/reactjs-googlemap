@@ -38,7 +38,7 @@ class Places extends Component {
     const { getPlaces, placesSearchHistory } = this.props;
     return (
       <StyledPlacesWrapper>
-        <Map location={{ lat, lng }} />
+        <Map location={{ lat, lng }} hasMarker />
         <PlacesAutoComplete
           onSetLocation={this.handleSetLocation}
           onGetPlaces={getPlaces}

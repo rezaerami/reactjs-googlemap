@@ -5,26 +5,28 @@ import {
   StyledAutoCompleteSuggestionsWrapper,
   StyledSuggestionItem,
 } from './styles';
+import defaultMessages from '../../../constants/defaultMessages';
 
 /* eslint-disable react/no-array-index-key */
 const PlacesAutoCompleteSuggestion = props => {
   const { suggestions, onSuggestionClick } = props;
-  if (!suggestions || (suggestions && !suggestions.length)) {
-    return null;
-  }
   return (
     <StyledAutoCompleteSuggestionsWrapper>
-      {suggestions.map((suggestion, index) => {
-        const { title } = suggestion;
-        return (
-          <StyledSuggestionItem
-            key={index}
-            onClick={() => onSuggestionClick(suggestion)}
-          >
-            {title}
-          </StyledSuggestionItem>
-        );
-      })}
+      {suggestions && suggestions.length ? (
+        suggestions.map((suggestion, index) => {
+          const { title } = suggestion;
+          return (
+            <StyledSuggestionItem
+              key={index}
+              onClick={() => onSuggestionClick(suggestion)}
+            >
+              {title}
+            </StyledSuggestionItem>
+          );
+        })
+      ) : (
+        <StyledSuggestionItem>{defaultMessages.noResult}</StyledSuggestionItem>
+      )}
     </StyledAutoCompleteSuggestionsWrapper>
   );
 };

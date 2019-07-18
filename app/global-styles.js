@@ -54,8 +54,8 @@ injectGlobal`
         border-spacing: 0;
     }
     html {
-        direction: rtl;
-        text-align: right;
+        direction: ltr;
+        text-align: left;
         font-size: 62%;
         font-family: ${theme.defaultFont};
     }

@@ -26,7 +26,6 @@ class PlacesAutoComplete extends Component {
     this.handleSetQuery = this.handleSetQuery.bind(this);
     this.handleGetPlaces = this.handleGetPlaces.bind(this);
     this.handleSetPlaces = this.handleSetPlaces.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handlePlacesSearchHistoryItemClick = this.handlePlacesSearchHistoryItemClick.bind(
       this,
     );
@@ -88,7 +87,10 @@ class PlacesAutoComplete extends Component {
               title,
             });
           });
-          this.handleSetPlaces(places, this.handleToggleLoading);
+          this.handleSetPlaces(places, () => {
+            this.handleSetPlacesAutoCompleteSuggestionVisibility(true);
+            this.handleToggleLoading();
+          });
         },
         onFailed: message => {
           this.handleToggleLoading();
@@ -105,27 +107,17 @@ class PlacesAutoComplete extends Component {
       callback,
     );
   }
-  handleFormSubmit(e) {
-    if (e) {
-      e.preventDefault();
-    }
-    this.setState(
-      {
-        formSubmitted: true,
-      },
-      this.handleGetPlaces,
-    );
-  }
 
   handlePlacesSearchHistoryItemClick(searchHistory) {
     const { title } = searchHistory;
-    this.handleSetQuery(title);
-    this.handleFormSubmit();
+    this.handleSetPlacesAutoCompleteSuggestionVisibility(false);
+    this.handleSetQuery(title, this.handleGetPlaces);
   }
 
   handlePlacesItemClick(place) {
     const { onSetLocation } = this.props;
     const { lat, lng, title } = place;
+    this.handleSetPlacesAutoCompleteSuggestionVisibility(false);
     this.handleSetQuery(title);
     onSetLocation({ lat, lng });
   }
@@ -142,7 +134,6 @@ class PlacesAutoComplete extends Component {
     const { placesSearchHistory } = this.props;
     const {
       places,
-      formSubmitted,
       query,
       loading,
       placesAutoCompleteSuggestionVisibility,
@@ -168,13 +159,13 @@ class PlacesAutoComplete extends Component {
           loading={loading}
           query={query}
           onSetQuery={this.handleSetQuery}
-          onFormSubmit={this.handleFormSubmit}
+          onFormSubmit={this.handleGetPlaces}
         />
         {suggestionVisibility && (
           <PlacesAutoCompleteSuggestion
-            suggestions={formSubmitted ? places : normalizedPlacesSearchHistory}
+            suggestions={query ? places : normalizedPlacesSearchHistory}
             onSuggestionClick={
-              formSubmitted
+              query
                 ? this.handlePlacesItemClick
                 : this.handlePlacesSearchHistoryItemClick
             }

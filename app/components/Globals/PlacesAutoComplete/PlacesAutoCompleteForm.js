@@ -12,6 +12,7 @@ import {
   StyledAutoCompleteButtonWrapper,
 } from './styles';
 
+/* eslint-disable no-nested-ternary */
 const PlacesAutoCompleteForm = props => {
   const { loading, query, onSetQuery, onFormSubmit } = props;
   return (
@@ -30,10 +31,13 @@ const PlacesAutoCompleteForm = props => {
         <button
           className={loading ? 'spinner' : ''}
           type="button"
-          onClick={onFormSubmit}
-          disabled="loading"
+          onClick={() => onSetQuery('')}
+          disabled={loading}
         >
-          <Icon name={loading ? 'spinner' : 'search'} size={1.5} />
+          <Icon
+            name={loading ? 'spinner' : query ? 'cross' : 'search'}
+            size={1.5}
+          />
         </button>
       </StyledAutoCompleteButtonWrapper>
     </StyledAutoCompleteFormWrapper>

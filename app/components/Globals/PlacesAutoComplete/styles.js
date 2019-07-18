@@ -7,6 +7,7 @@ const StyledAutoCompleteWrapper = Styled.div`
   left: calc(${props => props.theme.defaultRem});
   right: calc(${props => props.theme.defaultRem});
   z-index: 100;
+  max-width: calc(${props => props.theme.defaultRem} * 40);
 `;
 const StyledAutoCompleteFormWrapper = Styled.form`
   height: calc(${props => props.theme.defaultRem} * 3.5);
@@ -38,6 +39,9 @@ const StyledAutoCompleteInputWrapper = Styled.div`
 `;
 const StyledAutoCompleteButtonWrapper = Styled.div`
   width: calc(${props => props.theme.defaultRem} * 3.5);
+  button {
+    cursor: pointer;
+  }
 `;
 
 const StyledAutoCompleteSuggestionsWrapper = Styled.div`
