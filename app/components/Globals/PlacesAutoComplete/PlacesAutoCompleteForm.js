@@ -22,7 +22,7 @@ import {
  * @function PlacesAutoCompleteForm
  * @description
  * renders a form to let user search and passes search query to parent
- * @param {object}   props     - user input to set in state of the component
+ * @param {object}   props     - props of component that were given by parent
  * @return {jsx} - jsx component to show
  * @example
  * <PlacesAutoCompleteForm
