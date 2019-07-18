@@ -19,7 +19,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import SamplePage from 'containers/SamplePage/Loadable';
+import PlacesPage from 'containers/PlacesPage/Loadable';
 
 // import PrivateRoutes from './PrivateRoutes';
 
@@ -33,7 +33,7 @@ function App() {
           render={({ location }) => {
             const routes = (
               <Switch location={location}>
-                <Route path={routers.sample} component={SamplePage} />
+                <Route path={routers.sample} component={PlacesPage} />
               </Switch>
             );
             return routes;

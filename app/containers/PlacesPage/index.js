@@ -3,19 +3,19 @@ import { withRouter } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
 
-import Sample from '../../components/Sample';
+import Places from '../../components/Places';
 
-import { StyledSampleContainer } from './styles';
+import { StyledPlacesContainer } from './styles';
 
 /* eslint-disable react/prefer-stateless-function */
-class CategoriesPage extends Component {
+class PlacesPage extends Component {
   render() {
     return (
-      <StyledSampleContainer>
-        <Sample />
-      </StyledSampleContainer>
+      <StyledPlacesContainer>
+        <Places />
+      </StyledPlacesContainer>
     );
   }
 }
 
-export default withRouter(CategoriesPage);
+export default withRouter(PlacesPage);

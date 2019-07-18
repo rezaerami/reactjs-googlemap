@@ -56,7 +56,7 @@ injectGlobal`
     html {
         direction: rtl;
         text-align: right;
-        font-size: 2.778vw;
+        font-size: 62%;
         font-family: ${theme.defaultFont};
     }
     html * {
