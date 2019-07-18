@@ -73,15 +73,15 @@ module.exports = require('./webpack.base.babel')({
     }),
 
     new WebpackPwaManifest({
-      name: 'تریپینو',
-      short_name: 'Tripino',
-      description: 'تریپینو، تجربه سفری نو',
+      name: 'React Google Map',
+      short_name: 'React Google Map',
+      description: 'React Google Map',
       background_color: '#ffffff',
       theme_color: '#0883b4',
       display: 'standalone',
       orientation: 'portrait',
       ios: {
-        'apple-mobile-web-app-title': 'تریپینو، تجربه سفری نو',
+        'apple-mobile-web-app-title': 'React Google Map',
         'apple-mobile-web-app-status-bar-style': 'black',
       },
       icons: [
