@@ -9,7 +9,10 @@ import { toast } from 'react-toastify';
 import PlacesAutoCompleteForm from './PlacesAutoCompleteForm';
 import PlacesAutoCompleteSuggestion from './PlacesAutoCompleteSuggestion';
 
-import { StyledAutoCompleteWrapper, StyledSearchHistoryWrapper } from './styles';
+import {
+  StyledAutoCompleteWrapper,
+  StyledSearchHistoryWrapper,
+} from './styles';
 
 /**
  * class representing a component
@@ -294,14 +297,15 @@ class PlacesAutoComplete extends Component {
             />
           )}
         </StyledAutoCompleteWrapper>
-        <StyledSearchHistoryWrapper>
-          {placesSearchHistory.length && (
+        {placesSearchHistory.length && (
+          <StyledSearchHistoryWrapper>
             <PlacesAutoCompleteSuggestion
               suggestions={placesSearchHistory}
               onSuggestionClick={this.handlePlacesSearchHistoryItemClick}
+              modifier="carousel"
             />
-          )}
-        </StyledSearchHistoryWrapper>
+          </StyledSearchHistoryWrapper>
+        )}
       </Fragment>
     );
   }

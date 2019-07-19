@@ -16,9 +16,6 @@ const StyledSearchHistoryWrapper = Styled.div`
   right: calc(${props => props.theme.defaultRem});
   z-index: 100;
   max-width: calc(${props => props.theme.defaultRem} * 40);
-  max-height: calc(${props => props.theme.defaultRem} * 15);
-  overflow-y: auto;
-  background: ${props => props.theme.colors.white};
 `;
 const StyledAutoCompleteFormWrapper = Styled.form`
   height: calc(${props => props.theme.defaultRem} * 3.5);
@@ -56,20 +53,37 @@ const StyledAutoCompleteButtonWrapper = Styled.div`
 `;
 
 const StyledAutoCompleteSuggestionsWrapper = Styled.div`
-  border-radius: calc(${props => props.theme.defaultRem} * 0.5);
-  box-shadow: 0 calc(${props => props.theme.defaultRem} * 0.5) calc(${props =>
-  props.theme.defaultRem} * 1) rgba(0, 0, 0, 0.1);
-  background-color: ${props => props.theme.colors.white};
-  margin-top: calc(${props => props.theme.defaultRem} * 1);
+  ${props => props.modifier === 'list' && (`
+    border-radius: calc(${props.theme.defaultRem} * 0.5);
+    box-shadow: 0 calc(${props.theme.defaultRem} * 0.5) calc(${props.theme.defaultRem} * 1) rgba(0, 0, 0, 0.1);
+    background-color: ${props.theme.colors.white};
+    margin-top: calc(${props.theme.defaultRem} * 1);
+  `)}
+  ${props => props.modifier === 'carousel' && (`
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+  `)}
 `;
 const StyledSuggestionItem = Styled.div`
   padding: calc(${props => props.theme.defaultRem} * 1);
   font-size: calc(${props => props.theme.defaultRem} * 1.2);
   cursor: pointer;
-  &:not(:last-child){
-    border-bottom: solid calc(${props =>
-    props.theme.defaultRem} * 0.1) ${props => props.theme.colors.borderColor};
-  }
+  ${props => props.modifier === 'list' && (`
+    &:not(:last-child){
+      border: solid calc(${props.theme.defaultRem} * 0.1) ${props.theme.colors.borderColor};
+    }
+  `)}
+  ${props => props.modifier === 'carousel' && (`
+    & {
+      > * {
+        background-color: ${props.theme.colors.white};
+        padding: calc(${props.theme.defaultRem} * 2);
+        border-radius: calc(${props.theme.defaultRem} * 0.5);
+        display: inline-block;
+      }
+    }
+  `)}
 `;
 
 export {
