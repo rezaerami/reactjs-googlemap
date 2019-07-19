@@ -135,7 +135,11 @@ class PlacesAutoComplete extends Component {
    * and in case of failure it would toast a message.
    * @return void
    */
-  handleGetPlaces() {
+  handleGetPlaces(e) {
+    if (e) {
+      e.preventDefault();
+    }
+
     const { query, loading } = this.state;
     const { onGetPlaces } = this.props;
     const trimmedQuery = query.trim();
