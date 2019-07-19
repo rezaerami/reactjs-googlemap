@@ -5,9 +5,9 @@ const StyledAutoCompleteWrapper = Styled.div`
   position: absolute;
   top: calc(${props => props.theme.defaultRem});
   left: calc(${props => props.theme.defaultRem});
-  right: calc(${props => props.theme.defaultRem});
   z-index: 100;
   max-width: calc(${props => props.theme.defaultRem} * 40);
+  width: calc(100% - calc(${props => props.theme.defaultRem} * 7))
 `;
 const StyledSearchHistoryWrapper = Styled.div`
   position: absolute;
