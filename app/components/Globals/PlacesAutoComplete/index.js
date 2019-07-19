@@ -141,13 +141,17 @@ class PlacesAutoComplete extends Component {
     }
 
     const { query, loading } = this.state;
-    const { onGetPlaces } = this.props;
-    const trimmedQuery = query.trim();
+    const { onGetPlaces, onSetSearchHistory } = this.props;
+    const trimmedQuery = query ? query.trim() : '';
     if (!loading && trimmedQuery) {
       this.handleToggleLoading();
       onGetPlaces({
         query: trimmedQuery,
         onSuccess: results => {
+          onSetSearchHistory({
+            type: 'query',
+            title: query,
+          });
           const places = [];
           results.forEach(item => {
             const {
@@ -204,9 +208,14 @@ class PlacesAutoComplete extends Component {
    * @return void
    */
   handlePlacesSearchHistoryItemClick(searchHistory) {
-    const { title } = searchHistory;
-    this.handleSetPlacesAutoCompleteSuggestionVisibility(false);
-    this.handleSetQuery(title, this.handleGetPlaces);
+    const { type, title } = searchHistory;
+    if(type === 'query') {
+      this.handleSetPlacesAutoCompleteSuggestionVisibility(false);
+      this.handleSetQuery(title, this.handleGetPlaces);
+    }
+    else if(type === 'place'){
+      this.handlePlacesItemClick(searchHistory);
+    }
   }
 
   /**
@@ -219,10 +228,14 @@ class PlacesAutoComplete extends Component {
    * @return void
    */
   handlePlacesItemClick(place) {
-    const { onSetLocation } = this.props;
+    const { onSetLocation, onSetSearchHistory } = this.props;
     const { lat, lng, title } = place;
     this.handleSetPlacesAutoCompleteSuggestionVisibility(false);
     this.handleSetQuery(title);
+    onSetSearchHistory({
+      type: 'place',
+      ...place,
+    });
     onSetLocation({ lat, lng });
   }
 
@@ -259,14 +272,9 @@ class PlacesAutoComplete extends Component {
       placesAutoCompleteSuggestionVisibility,
     } = this.state;
 
-    const normalizedPlacesSearchHistory = [];
-    placesSearchHistory.forEach(item => {
-      normalizedPlacesSearchHistory.push({ title: item });
-    });
-
     const suggestionVisibility =
       placesAutoCompleteSuggestionVisibility &&
-      (normalizedPlacesSearchHistory.length || places.length) &&
+      (placesSearchHistory.length || places.length) &&
       !loading;
 
     return (
@@ -283,7 +291,7 @@ class PlacesAutoComplete extends Component {
         />
         {suggestionVisibility && (
           <PlacesAutoCompleteSuggestion
-            suggestions={query ? places : normalizedPlacesSearchHistory}
+            suggestions={query ? places : placesSearchHistory}
             onSuggestionClick={
               query
                 ? this.handlePlacesItemClick
@@ -314,11 +322,13 @@ class PlacesAutoComplete extends Component {
  * @description defines prop types of PlacesAutoComplete
  * @property {function}     onSetLocation            - function to pass selected location to parent
  * @property {function}     onGetPlaces              - dispatches an action to getPlaces
+ * @property {function}     onSetSearchHistory       - dispatches an action to onSetSearchHistory
  * @property {array}        [placesSearchHistory]    - user's search history of queries
  */
 PlacesAutoComplete.propTypes = {
   onSetLocation: PropTypes.func.isRequired,
   onGetPlaces: PropTypes.func.isRequired,
+  onSetSearchHistory: PropTypes.func.isRequired,
   placesSearchHistory: PropTypes.array,
 };
 
