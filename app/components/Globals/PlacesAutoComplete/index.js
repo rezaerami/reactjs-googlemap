@@ -2,14 +2,14 @@
  * @memberOf components.Globals
  * @namespace components.Globals.PlacesAutoComplete
  */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 
 import PlacesAutoCompleteForm from './PlacesAutoCompleteForm';
 import PlacesAutoCompleteSuggestion from './PlacesAutoCompleteSuggestion';
 
-import { StyledAutoCompleteWrapper } from './styles';
+import { StyledAutoCompleteWrapper, StyledSearchHistoryWrapper } from './styles';
 
 /**
  * class representing a component
@@ -209,11 +209,10 @@ class PlacesAutoComplete extends Component {
    */
   handlePlacesSearchHistoryItemClick(searchHistory) {
     const { type, title } = searchHistory;
-    if(type === 'query') {
+    if (type === 'query') {
       this.handleSetPlacesAutoCompleteSuggestionVisibility(false);
       this.handleSetQuery(title, this.handleGetPlaces);
-    }
-    else if(type === 'place'){
+    } else if (type === 'place') {
       this.handlePlacesItemClick(searchHistory);
     }
   }
@@ -273,33 +272,37 @@ class PlacesAutoComplete extends Component {
     } = this.state;
 
     const suggestionVisibility =
-      placesAutoCompleteSuggestionVisibility &&
-      (placesSearchHistory.length || places.length) &&
-      !loading;
+      placesAutoCompleteSuggestionVisibility && places.length && !loading;
 
     return (
-      <StyledAutoCompleteWrapper
-        innerRef={node => {
-          this.node = node;
-        }}
-      >
-        <PlacesAutoCompleteForm
-          loading={loading}
-          query={query}
-          onSetQuery={this.handleSetQuery}
-          onFormSubmit={this.handleGetPlaces}
-        />
-        {suggestionVisibility && (
-          <PlacesAutoCompleteSuggestion
-            suggestions={query ? places : placesSearchHistory}
-            onSuggestionClick={
-              query
-                ? this.handlePlacesItemClick
-                : this.handlePlacesSearchHistoryItemClick
-            }
+      <Fragment>
+        <StyledAutoCompleteWrapper
+          innerRef={node => {
+            this.node = node;
+          }}
+        >
+          <PlacesAutoCompleteForm
+            loading={loading}
+            query={query}
+            onSetQuery={this.handleSetQuery}
+            onFormSubmit={this.handleGetPlaces}
           />
-        )}
-      </StyledAutoCompleteWrapper>
+          {suggestionVisibility && (
+            <PlacesAutoCompleteSuggestion
+              suggestions={places}
+              onSuggestionClick={this.handlePlacesItemClick}
+            />
+          )}
+        </StyledAutoCompleteWrapper>
+        <StyledSearchHistoryWrapper>
+          {placesSearchHistory.length && (
+            <PlacesAutoCompleteSuggestion
+              suggestions={placesSearchHistory}
+              onSuggestionClick={this.handlePlacesSearchHistoryItemClick}
+            />
+          )}
+        </StyledSearchHistoryWrapper>
+      </Fragment>
     );
   }
 
