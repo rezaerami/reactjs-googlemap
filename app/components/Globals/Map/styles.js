@@ -4,7 +4,7 @@ const StyledMapWrapper = Styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  .gm-fullscreen-control {
+  .gm-fullscreen-control, .gmnoprint {
     display: none;
   }
 `;
@@ -18,8 +18,8 @@ const StyledMarkerWrapper = Styled.div`
 
 const StyledGeoLocationTrackerWrapper = Styled.div`
   position: absolute;
-  bottom: calc(${props => props.theme.defaultRem} * 3);
-  left: calc(${props => props.theme.defaultRem} * 1);
+  top: calc(${props => props.theme.defaultRem} * 1);
+  right: calc(${props => props.theme.defaultRem} * 1);
   z-index: 100;
 `;
 const StyledTrackButton = Styled.button`
@@ -27,13 +27,15 @@ const StyledTrackButton = Styled.button`
   box-shadow: 0 calc(${props => props.theme.defaultRem} * 0.5) calc(${props =>
   props.theme.defaultRem} * 0.5) rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  width: calc(${props => props.theme.defaultRem} * 4);
-  height: calc(${props => props.theme.defaultRem} * 4);
+  width: calc(${props => props.theme.defaultRem} * 3.5);
+  height: calc(${props => props.theme.defaultRem} * 3.5);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   border-radius: 50%;
-  padding: calc(${props => props.theme.defaultRem});
+  padding: 0;
+  align-items: center;
+  justify-content: center;
   border: calc(${props => props.theme.defaultRem} * 0.1) solid ${props =>
   props.theme.colors.borderColor};
   > * {
