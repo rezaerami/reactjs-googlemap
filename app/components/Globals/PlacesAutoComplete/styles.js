@@ -15,7 +15,6 @@ const StyledSearchHistoryWrapper = Styled.div`
   left: calc(${props => props.theme.defaultRem});
   right: calc(${props => props.theme.defaultRem});
   z-index: 100;
-  max-width: calc(${props => props.theme.defaultRem} * 40);
 `;
 const StyledAutoCompleteFormWrapper = Styled.form`
   height: calc(${props => props.theme.defaultRem} * 3.5);
@@ -63,6 +62,8 @@ const StyledAutoCompleteSuggestionsWrapper = Styled.div`
     display: flex;
     width: 100%;
     overflow-x: auto;
+    justify-content: center;
+    align-items: center;
   `)}
 `;
 const StyledSuggestionItem = Styled.div`
@@ -81,6 +82,7 @@ const StyledSuggestionItem = Styled.div`
         padding: calc(${props.theme.defaultRem} * 2);
         border-radius: calc(${props.theme.defaultRem} * 0.5);
         display: inline-block;
+        white-space: nowrap;
       }
     }
   `)}
