@@ -28,9 +28,9 @@ import defaultMessages from '../../../constants/defaultMessages';
  */
 /* eslint-disable react/no-array-index-key */
 const PlacesAutoCompleteSuggestion = props => {
-  const { suggestions, onSuggestionClick } = props;
+  const { suggestions, onSuggestionClick, modifier } = props;
   return (
-    <StyledAutoCompleteSuggestionsWrapper>
+    <StyledAutoCompleteSuggestionsWrapper modifier={modifier}>
       {suggestions && suggestions.length ? (
         suggestions.map((suggestion, index) => {
           const { title } = suggestion;
@@ -38,8 +38,9 @@ const PlacesAutoCompleteSuggestion = props => {
             <StyledSuggestionItem
               key={index}
               onClick={() => onSuggestionClick(suggestion)}
+              modifier={modifier}
             >
-              {title}
+              <span>{title}</span>
             </StyledSuggestionItem>
           );
         })
@@ -56,10 +57,12 @@ const PlacesAutoCompleteSuggestion = props => {
  * @type {object}
  * @description defines prop types of PlacesAutoCompleteSuggestion
  * @property {array}         [suggestions]            - defines if any loading in progress from parent
+ * @property {string}        [modifier]               - decides hos the component should be rendered, as a list or carousel.
  * @property {function}      onSuggestionClick        - function to call when user clicks on a suggestion item
  */
 PlacesAutoCompleteSuggestion.propTypes = {
   suggestions: PropTypes.array,
+  modifier: PropTypes.oneOf(['list', 'carousel']),
   onSuggestionClick: PropTypes.func.isRequired,
 };
 /**
@@ -68,9 +71,11 @@ PlacesAutoCompleteSuggestion.propTypes = {
  * @type {object}
  * @description defines default props of PlacesAutoCompleteSuggestion
  * @property {array}         [suggestions]          - sets an empty array as default suggestions
+ * @property {string}        [modifier]             - sets list as default modifier
  */
 PlacesAutoCompleteSuggestion.defaultProps = {
   suggestions: [],
+  modifier: 'list',
 };
 
 /**
