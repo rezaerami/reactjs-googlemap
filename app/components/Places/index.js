@@ -73,7 +73,7 @@ class Places extends Component {
    */
   render() {
     const { lat, lng } = this.state;
-    const { getPlaces, placesSearchHistory } = this.props;
+    const { getPlaces, setSearchHistory, placesSearchHistory } = this.props;
     return (
       <StyledPlacesWrapper>
         <Map
@@ -85,6 +85,7 @@ class Places extends Component {
         <PlacesAutoComplete
           onSetLocation={this.handleSetLocation}
           onGetPlaces={getPlaces}
+          onSetSearchHistory={setSearchHistory}
           placesSearchHistory={placesSearchHistory}
           location={{ lat, lng }}
         />
@@ -99,13 +100,15 @@ class Places extends Component {
  * @type {object}
  * @description defines prop types of Places
  * @property {object}      [location]                - Location to pass to the map
- * @property {array}       placesSearchHistory       - SELF INJECTION, array of user's search history
- * @property {function}    getPlaces                 - SELF INJECTION, function to dispatch getPlace action
+ * @property {array}       placesSearchHistory       - array of user's search history
+ * @property {function}    getPlaces                 - function to dispatch getPlace action
+ * @property {function}    setSearchHistory          - function to dispatch setSearchHistory action
  */
 Places.propTypes = {
   location: PropTypes.object,
   placesSearchHistory: PropTypes.array.isRequired,
   getPlaces: PropTypes.func.isRequired,
+  setSearchHistory: PropTypes.func.isRequired,
 };
 
 /**

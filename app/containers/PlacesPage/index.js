@@ -35,11 +35,12 @@ class PlacesPage extends Component {
    * @return {jsx} - jsx component to show
    */
   render() {
-    const { getPlaces, placesSearchHistory } = this.props;
+    const { getPlaces, setSearchHistory, placesSearchHistory } = this.props;
     return (
       <StyledPlacesContainer>
         <Places
           getPlaces={getPlaces}
+          setSearchHistory={setSearchHistory}
           placesSearchHistory={placesSearchHistory}
         />
       </StyledPlacesContainer>
@@ -70,6 +71,7 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = dispatch => ({
   getPlaces: payload => dispatch(placesActions.getPlaces(payload)),
+  setSearchHistory: payload => dispatch(placesActions.setSearchHistory(payload)),
 });
 
 /**
@@ -79,10 +81,12 @@ const mapDispatchToProps = dispatch => ({
  * @description defines prop types of PlacesPage
  * @property {array}       placesSearchHistory       - SELF INJECTION, array of user's search history
  * @property {function}    getPlaces                 - SELF INJECTION, function to dispatch getPlace action
+ * @property {function}    setSearchHistory          - SELF INJECTION, function to dispatch setSearchHistory action
  */
 PlacesPage.propTypes = {
   placesSearchHistory: PropTypes.array.isRequired,
   getPlaces: PropTypes.func.isRequired,
+  setSearchHistory: PropTypes.func.isRequired,
 };
 
 /**

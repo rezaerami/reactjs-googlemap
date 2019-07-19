@@ -1,10 +1,13 @@
 const utils = {
   normalizeSearchHistory(searchHistory, payload) {
-    searchHistory.unshift(payload);
-    if (searchHistory.length > 10) {
-      searchHistory.pop();
+    const filteredSearchHistory = searchHistory.filter(
+      item => item.title.toUpperCase() !== payload.title.toUpperCase(),
+    );
+    filteredSearchHistory.unshift(payload);
+    if (filteredSearchHistory.length > 10) {
+      filteredSearchHistory.pop();
     }
-    return [...new Set(searchHistory)];
+    return filteredSearchHistory;
   },
 };
 export default utils;
