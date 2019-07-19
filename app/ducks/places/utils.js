@@ -1,3 +1,4 @@
+import { sortBy } from 'lodash';
 const utils = {
   normalizeSearchHistory(searchHistory, payload) {
     const filteredSearchHistory = searchHistory.filter(
@@ -7,7 +8,7 @@ const utils = {
     if (filteredSearchHistory.length > 10) {
       filteredSearchHistory.pop();
     }
-    return filteredSearchHistory;
+    return sortBy(filteredSearchHistory, 'title');
   },
 };
 export default utils;
