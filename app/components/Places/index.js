@@ -81,7 +81,6 @@ class Places extends Component {
           hasMarker
           onSetLocation={this.handleSetLocation}
           autoAskGeoLocationAccess
-          showGeoLocationTrackerButton={false}
         />
         <PlacesAutoComplete
           onSetLocation={this.handleSetLocation}
